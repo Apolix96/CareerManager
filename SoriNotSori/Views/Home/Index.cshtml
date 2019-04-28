@@ -1,0 +1,40 @@
+﻿@model SoriNotSori.Models.CareerModels
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Книжный магазин</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+</head>
+<body>
+ <div>    
+        
+        <p><a href="/Home/Create/">Добавить</a></p>
+       
+        <table>
+            <tr><td><p>Название книги</p></td>
+                <td style="padding-left: 10%;"><p>Название субъекта</p></td>
+               <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Career)
+            {
+            <tr>
+                <td><p>@b.Name</p></td>
+                <td style="padding-left: 10%;"><p>@b.NameSub</p></td>
+                <td><p><a href="/Home/Edit/@b.ID">Изменить</a></p></td>
+                <td style="padding-left: 10%;"><p><a href="/Home/Del/@b.ID">Удалить</a></p></td>
+            </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+

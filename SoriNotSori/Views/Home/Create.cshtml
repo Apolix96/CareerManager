@@ -1,0 +1,24 @@
+﻿@model SoriNotSori.Models.CareerModels
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Новый карьер</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name, "Название карьера")
+    <br />
+    @Html.EditorFor(model => model.Name)
+    <br /><br />
+    @Html.LabelFor(model => model.NameSub, "Название субьекта")
+    <br />
+    @Html.EditorFor(model => model.NameSub)
+    <br /><br />
+
+    <input type="submit" value="Добавить" />
+}
+
+
