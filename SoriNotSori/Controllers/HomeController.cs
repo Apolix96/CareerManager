@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.UI;
 using System.Data.Entity;
+using SoriNotSori.DAL;
+
 
 namespace SoriNotSori.Controllers
 {
@@ -11,11 +13,15 @@ namespace SoriNotSori.Controllers
     public class HomeController : Controller
     {
         CareerContext context = new CareerContext();
+        Data CaierData = new Data();
+        DatabaseSet CaierSet = new DatabaseSet();
+        DataFind CaierFind = new DataFind();
+        DataChanges CaierChange = new DataChanges();
+
         // GET: Home
         public ActionResult Index()
         {
-            IEnumerable<CareerModels> Carer = context.Career;
-            ViewBag.Career = Carer;
+            ViewBag.Career =CaierData.DataUse();
             return View();
         }
         [HttpGet]
@@ -26,24 +32,11 @@ namespace SoriNotSori.Controllers
         [HttpPost]
         public ActionResult Create(CareerModels cuir)
         {
-            context.Career.Add(cuir);
-            context.SaveChanges();
+            CaierSet.DataSet(cuir);
 
             return RedirectToAction("Index");
         }
-        [HttpPost]
-        public string Craft(CareerModels career)
-        {
-            career.ID = career.ID;
-            career.Name = career.Name;
-            career.NameSub = career.NameSub;
-            context.Career.Add(career);
-            context.SaveChanges();
-            return "Измененено "+career.Name+" "+career.NameSub+" Конец";
-               
-        }
 
-        
         [HttpGet]
         public ActionResult Edit(int? ID)
         {
@@ -51,51 +44,42 @@ namespace SoriNotSori.Controllers
             {
                 return HttpNotFound();
             }
-            CareerModels career = context.Career.Find(ID);
-            if (career!= null)
-            {
-                return View(career);
-            }
-            return HttpNotFound();
+            return View(CaierFind.ID(ID));
+            
+       
         }
         [HttpPost]
         public ActionResult Edit(CareerModels career)
         {
-            context.Entry(career).State = EntityState.Modified;
-            context.SaveChanges();
+            CaierChange.Edit(career);
+           
             return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Del(int? ID)
         {
-            
-                CareerModels Caier = context.Career.Find(ID);
-                context.Career.Remove(Caier);
-                context.SaveChanges();
-           
-            
+            CaierChange.Delete(ID);
             return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Del (int ID)
         {
-            CareerModels cuier = context.Career.Find(ID);
-            if (cuier == null)
+            
+            if (CaierFind.ID(ID) == null)
             {
                 return HttpNotFound();
             }
-            return View(cuier);
+            return View(CaierFind.ID(ID));
         }
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int ID)
         {
-            CareerModels cuier = context.Career.Find(ID);
-            if (cuier == null)
+            
+            if (CaierFind.ID(ID) == null)
             {
                 return HttpNotFound();
             }
-            context.Career.Remove(cuier);
-            context.SaveChanges();
+            CaierChange.DeleteConfirmed(ID);
             return RedirectToAction("Index");
         }
 
