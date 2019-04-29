@@ -1,0 +1,25 @@
+    *{margin: 0;padding: 0;}
+.grido{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: minmax(80px, auto)
+}
+.Log{
+    font-size: 48px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding-top: 5px;
+}
+.tb{
+    border: solid 1px;
+    text-align: center;
+    padding: 5px;
+}
+.Link{
+    font-size: 48px;
+    color: black;
+    border: solid 4px;
+    text-align: center;
+    
+}
