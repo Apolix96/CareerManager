@@ -7,16 +7,16 @@
 @using (Html.BeginForm("Edit", "Home", FormMethod.Post))
 {
     <fieldset>
-        @Html.HiddenFor(m => m.ID)
+        @Html.HiddenFor(model => model.ID)
         <p>
-            @Html.LabelFor(m => m.Name, "Имя карьера")
+            @Html.LabelFor(model => model.Name, "Имя карьера")
             <br />
-            @Html.EditorFor(m => m.Name)
+            @Html.EditorFor(model => model.Name)
         </p>
         <p>
-            @Html.LabelFor(m => m.NameSub, "Имя региона")
+            @Html.LabelFor(model => model.NameSub, "Имя региона")
             <br />
-            @Html.EditorFor(m => m.NameSub)
+            @Html.EditorFor(model => model.NameSub)
 
         </p>
         <p><input type="submit" value="Отправить" /></p>
