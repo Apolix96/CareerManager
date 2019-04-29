@@ -142,6 +142,7 @@
     <Compile Include="DAL\Data.cs" />
     <Compile Include="DAL\DatabaseSet.cs" />
     <Compile Include="DAL\DataChanges.cs" />
+    <Compile Include="DAL\DataDel.cs" />
     <Compile Include="DAL\DataFind.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

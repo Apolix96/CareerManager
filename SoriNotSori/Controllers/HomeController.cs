@@ -13,10 +13,11 @@ namespace SoriNotSori.Controllers
     public class HomeController : Controller
     {
         CareerContext context = new CareerContext();
-        Data CaierData = new Data();
         DatabaseSet CaierSet = new DatabaseSet();
+        Data CaierData = new Data();
         DataFind CaierFind = new DataFind();
         DataChanges CaierChange = new DataChanges();
+        DataDel CaierDel = new DataDel();
 
         // GET: Home
         public ActionResult Index()
@@ -58,7 +59,7 @@ namespace SoriNotSori.Controllers
         [HttpPost]
         public ActionResult Del(int? ID)
         {
-            CaierChange.Delete(ID);
+            CaierDel.Delete(ID);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -79,7 +80,7 @@ namespace SoriNotSori.Controllers
             {
                 return HttpNotFound();
             }
-            CaierChange.Delete(ID);
+            CaierDel.Delete(ID);
             return RedirectToAction("Index");
         }
 
