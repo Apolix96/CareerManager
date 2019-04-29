@@ -11,29 +11,35 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Книжный магазин</title>
-    <link rel="stylesheet" href="~/Content/Site.css">
+    <title>Карьеры России</title>
+  <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
+     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
+<style>
+    
+</style>
 <body>
- <div>    
+ <div class="Link grido">    
         
-        <p><a href="/Home/Create/">Добавить</a></p>
-       
+     <div ><a href="/Home/Create/">Добавить</a></div>
+     </div>
+         <div>
         <table>
-            <tr><td><p>Название книги</p></td>
-                <td style="padding-left: 10%;"><p>Название субъекта</p></td>
-               <td></td>
+            <tr><td class="tb"><p>Название карьера</p></td>
+                <td class="tb"><p>Название субъекта</p></td>
+               
             </tr>
             @foreach (var b in ViewBag.Career)
             {
             <tr>
-                <td><p>@b.Name</p></td>
-                <td style="padding-left: 10%;"><p>@b.NameSub</p></td>
-                <td><p><a href="/Home/Edit/@b.ID">Изменить</a></p></td>
-                <td style="padding-left: 10%;"><p><a href="/Home/Del/@b.ID">Удалить</a></p></td>
+                <td class="tb"><p>@b.Name</p></td>
+                <td class="tb"><p>@b.NameSub</p></td>
+                <td ><p style="padding: 5px;"><a href="/Home/Edit/@b.ID">Изменить</a></p></td>
+                <td><p style="padding: 5px;"><a href="/Home/Del/@b.ID">Удалить</a></p></td>
             </tr>
             }
         </table>
+        
     </div>
 </body>
 </html>
