@@ -79,7 +79,7 @@ namespace SoriNotSori.Controllers
             {
                 return HttpNotFound();
             }
-            CaierChange.DeleteConfirmed(ID);
+            CaierChange.Delete(ID);
             return RedirectToAction("Index");
         }
 

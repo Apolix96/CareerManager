@@ -12,25 +12,19 @@ namespace SoriNotSori.DAL
     {
         CareerContext context = new CareerContext();
         DataFind CairFind = new DataFind();
-        public string Edit(CareerModels career)
+        public void Edit(CareerModels career)
         {
             context.Entry(career).State = EntityState.Modified;
             context.SaveChanges();
-            return "ok";
+            
         }
-        public string Delete(int? ID)
+        public void Delete(int? ID)
         {
             CareerModels career = context.Career.Find(ID);
             context.Career.Remove(career);
             context.SaveChanges();
-            return "Ok";
+            
         }
-        public string DeleteConfirmed(int? ID)
-        {
-            CareerModels cuier = context.Career.Find(ID);
-            context.Career.Remove(cuier);
-            context.SaveChanges();
-            return "ok";
-        }
+       
     }
 }

@@ -11,11 +11,11 @@ namespace SoriNotSori.DAL
     public class DatabaseSet
     {
         CareerContext context = new CareerContext();
-        public string DataSet(CareerModels cuir)
+        public void DataSet(CareerModels cuir)
         {
             context.Career.Add(cuir);
             context.SaveChanges();
-            return "Ok";
+            
         }
     }
 }
